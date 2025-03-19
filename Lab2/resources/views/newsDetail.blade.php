@@ -9,27 +9,40 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .news-detail img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
         }
-        .related-news img {
-            width: 100%;
-            height: 150px;
+
+        .featured-post {
+            height: 400px;
             object-fit: cover;
-            border-radius: 8px;
         }
-        .author-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+
+        .news-card {
+            transition: transform 0.3s;
         }
-        .author-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1020;
         }
     </style>
 </head>

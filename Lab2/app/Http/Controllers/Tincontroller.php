@@ -3,26 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\news;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
 class Tincontroller extends Controller
 {
+
     //
     public function index(){
         //Tin xem nhiều
-        $moreNewss = DB::table('news')
-        ->orderBy('views', 'desc')
-        ->limit(10)->get();
+        $moreNewss = news::orderBy('views', 'desc')->limit(10)->get();
 
         //tin mới nhất
-        $NewsNews = DB::table('news')
-        ->orderBy('created_at', 'desc')
-        ->limit(10)->get();
+        $NewsNews = news::orderBy('created_at', 'desc')->limit(10)->get();
 
         //danh mục
-        $categories = DB::table('categories')->get();
+        $categories = category::all();
 
         return view('news', compact('moreNewss', 'NewsNews', 'categories'));
     }
@@ -30,7 +28,7 @@ class Tincontroller extends Controller
     public function newsCate($id){
 
         //danh mục
-        $categories = DB::table('categories')->get();
+        $categories = category::all();
 
         //tin tức theo danh mục
         $newsCates = DB::table('news')
@@ -41,11 +39,9 @@ class Tincontroller extends Controller
 
     public function newsDetail($id){
         //danh mục
-        $categories = DB::table('categories')->get();
+        $categories = category::all();
 
-        $newsDetail = DB::table('news')
-        ->where('id', '=', $id)
-        ->first();
+        $newsDetail = news::find($id);
 
         return view('newsDetail', compact('newsDetail','categories'));
     }
