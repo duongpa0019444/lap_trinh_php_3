@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use App\Models\news;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\DB;
 
 
@@ -19,31 +19,28 @@ class Tincontroller extends Controller
         //tin mới nhất
         $NewsNews = news::orderBy('created_at', 'desc')->limit(10)->get();
 
-        //danh mục
-        $categories = category::all();
-
-        return view('news', compact('moreNewss', 'NewsNews', 'categories'));
+        return view('news', compact('moreNewss', 'NewsNews'));
     }
 
     public function newsCate($id){
-
-        //danh mục
-        $categories = category::all();
-
         //tin tức theo danh mục
-        $newsCates = DB::table('news')
-        ->where('category', '=', $id)->get();
-
-        return view('newsCategory', compact('newsCates', 'categories'));
+        $news = DB::table('news')->where('category', '=', $id)->get();
+        $category = category::find($id);
+        return view('newsCategory', compact('news','category'));
     }
 
     public function newsDetail($id){
-        //danh mục
-        $categories = category::all();
 
         $newsDetail = news::find($id);
 
-        return view('newsDetail', compact('newsDetail','categories'));
+        return view('newsDetail', compact('newsDetail'));
+    }
+
+    public function newsSearch(HttpRequest $request){
+        $category = ['name' => $request->input('keyword')];
+        $keyword = $request->input('keyword');
+        $news = News::where('title', 'like', "%$keyword%")->get();
+        return view('newsCategory', compact('news','category'));
     }
 
 }

@@ -41,8 +41,9 @@
                     <i class="fas fa-search"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end px-1" style="min-width: 250px;">
-                    <form class="d-flex" id="search-form">
-                        <input class="form-control me-1" type="search" placeholder="Tìm kiếm" aria-label="Search">
+                    <form action="{{ route('news.search') }}" class="d-flex" id="search-form" method="POST">
+                        @csrf
+                        <input class="form-control me-1" type="search" name="keyword" placeholder="Tìm kiếm" aria-label="Search">
                         <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                 </div>

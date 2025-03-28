@@ -9,6 +9,7 @@ Route::get('/', [Tincontroller::class,'index'])->name('home');
 Route::get('/news/category/{id}', [Tincontroller::class,'newsCate'])->name('newsCate');
 Route::get('/news/{id}', [Tincontroller::class,'newsDetail'])->name('newsDetail');
 
+Route::post('/news/search', [Tincontroller::class,'newsSearch'])->name('news.search');
 
 Route::post('/login', [UserController::class,'login'])->name('user.login');
 Route::post('/register', [UserController::class,'register'])->name('user.register');

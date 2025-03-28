@@ -20,10 +20,11 @@
                         </div>
                     </div>
                     <img src="{{$newsDetail->image}}" class="img-fluid w-100 mb-4" alt="Tiêu đề bài viết">
-                    <div class="content">
+                    <div>
 
                         <p>
-                            {{$newsDetail->description}}
+                            {{ $newsDetail->description }}
+                        </p>
                     </div>
                 </article>
             </div>
