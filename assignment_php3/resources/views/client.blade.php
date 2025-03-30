@@ -71,16 +71,53 @@
 @yield('content')
 
 <!-- Footer -->
-<footer class="bg-dark text-white py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <p>&copy; 2025 NEWS24. Đào Tùng Dương</p>
+<footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-md-left">
+        <div class="row text-md-left">
+            <!-- Logo + About -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">NEWS24</h5>
+                <p>Trang tin tức tổng hợp, nhanh chóng và chính xác. Cập nhật 24/7 mọi thông tin nóng hổi trong nước và quốc tế.</p>
             </div>
-            <div class="col-md-6 text-end">
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+
+            <!-- Links -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">Liên kết</h5>
+                <p><a href="#" class="text-white text-decoration-none">Trang chủ</a></p>
+                <p><a href="#" class="text-white text-decoration-none">Tin mới</a></p>
+                <p><a href="#" class="text-white text-decoration-none">Chính sách bảo mật</a></p>
+                <p><a href="#" class="text-white text-decoration-none">Điều khoản sử dụng</a></p>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">Liên hệ</h5>
+                <p><i class="fas fa-home me-3"></i> Hà Nội, Việt Nam</p>
+                <p><i class="fas fa-envelope me-3"></i> contact@news24.vn</p>
+                <p><i class="fas fa-phone me-3"></i> +84 123 456 789</p>
+            </div>
+
+            <!-- Social -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">Kết nối</h5>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="text-white me-3 fs-4"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <hr class="mb-4">
+
+        <!-- Copyright -->
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-8">
+                <p class="text-center text-md-start mb-0">© 2025 NEWS24. Thiết kế bởi <strong>Đào Tùng Dương</strong>.</p>
+            </div>
+            <div class="col-md-4 col-lg-4 text-center text-md-end">
+                <a href="#" class="text-white text-decoration-none">Về chúng tôi</a>
+                |
+                <a href="#" class="text-white text-decoration-none">Liên hệ</a>
             </div>
         </div>
     </div>
