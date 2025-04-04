@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\VerifyEmail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -28,8 +29,7 @@ class UserController extends Controller
         }
 
         if($user && Hash::check($request->input('password'),$user->password)){
-            session()->put('user_id', $user->id);
-            session()->put('user_name', $user->name);
+            Auth::login($user);
             return response()->json(['success' => 'Đăng nhập thành công!']);
         } else {
             return response()->json(['error' => 'Email hoặc mật khẩu không đúng!'], 401);
@@ -79,12 +79,21 @@ class UserController extends Controller
 
     public function myaccount(){
         $user = User::find(session('user_id'));
-        return view('myaccount', compact('user'));
+        return view('client/myaccount', compact('user'));
     }
 
     public function logout(){
-        session()->flush();
+        Auth::logout();
         return  redirect()->route('home')->with('success', 'Đăng xuất thành công!');
     }
+
+    public function dashboard(){
+        return view('admin/dashboard');
+    }
+
+    public function logoutAdmin(){
+        return view('client/myaccount');
+    }
+
 
 }

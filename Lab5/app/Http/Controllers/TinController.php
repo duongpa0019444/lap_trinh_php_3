@@ -75,8 +75,7 @@ class TinController extends Controller
     public function delete(Request $request){
         $id = $request->id;
         $tin = tin::find($id);
-        $image =
-        File::delete($tin->urlHinh);
+        $image = File::delete($tin->urlHinh);
         tin::destroy($id);
 
         return redirect()->route('tin.list')->with('success','Xóa thành công');
