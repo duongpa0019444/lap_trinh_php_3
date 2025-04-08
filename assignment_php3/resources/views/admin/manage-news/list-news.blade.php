@@ -1,5 +1,5 @@
 @extends('admin.admin')
-
+@section('title', 'Danh sách tin tức')
 @section('content')
 <!-- Content -->
 
@@ -30,17 +30,17 @@
                     <td><div class="truncate-text">{{ $news_item->title }}</div></td>
                     <td><div class="truncate-text">{{ $news_item->description_short }}</div></td>
                     <td><div class="truncate-text">{{ $news_item->description }}</div></td>
-                    <td><img src="{{ Storage::url($news_item->image) }}" width="100"></td>
+                    <td><img src="{{ asset('/img/'.$news_item->image) }}" width="100"></td>
                     <td>{{ $news_item->category }}</td>
                     <td>{{ $news_item->created_at }}</td>
                     <td>{{ $news_item->views }}</td>
                     <td>
-                        <button class="btn btn-warning btn-sm">Sửa</button>
-                        <form action="{{ route('admin.delete') }}" method="post">
+                        <a href="{{ route('admin.newsedit', $news_item->id) }}"><button class="btn btn-warning btn-sm">Sửa</button></a>
+                        <form action="{{ route('admin.mewsdelete') }}" method="post">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="id" value="{{ $news_item->id }}">
-                            <button class="btn btn-danger btn-sm">Xóa</button>
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</button>
                         </form>
                     </td>
                 </tr>

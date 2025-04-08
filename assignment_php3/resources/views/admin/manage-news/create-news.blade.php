@@ -1,5 +1,5 @@
 @extends('admin.admin')
-
+@section('title', 'Thêm bài viết')
 @section('content')
 
 <h1>Thêm Tin tức</h1>

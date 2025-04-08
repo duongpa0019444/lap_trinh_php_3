@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\Tincontroller;
 use App\Http\Controllers\UserController;
@@ -27,13 +28,23 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', AuthAdmin::class])->group(function() {
     Route::get('/admin/dashboard', [UserController::class,'dashboard'])->name('admin.dashboard');
+
+
     Route::get('/admin/news/list', [Tincontroller::class,'newsList'])->name('admin.newsList');
     Route::get('/admin/news/create', [Tincontroller::class,'newsCreate'])->name('admin.newsCreate');
     Route::post('/admin/news/store', [Tincontroller::class,'newsStore'])->name('admin.newsStore');
-    Route::delete('/admin/news/delete', [Tincontroller::class,'newsDelete'])->name('admin.delete');
+    Route::delete('/admin/news/delete', [Tincontroller::class,'newsDelete'])->name('admin.mewsdelete');
+    Route::get('/admin/news/{id}/edit', [Tincontroller::class,'newsEdit'])->name('admin.newsedit');
+    Route::put('/admin/news/update', [Tincontroller::class,'newsUpdate'])->name('admin.newsUpdate');
 
+
+    Route::get('/admin/category/list', [categoryController::class,'categoryList'])->name('admin.categoryList');
+    Route::get('/admin/category/create', [categoryController::class,'categoryCreate'])->name('admin.categoryCreate');
+    Route::post('/admin/category/store', [categoryController::class,'categoryStore'])->name('admin.categoryStore');
+    Route::delete('/admin/category/delete', [categoryController::class,'categoryDelete'])->name('admin.categorydelete');
+    Route::get('/admin/category/{id}/edit', [categoryController::class,'categoryEdit'])->name('admin.categoryedit');
+    Route::put('/admin/category/update', [categoryController::class,'categoryUpdate'])->name('admin.categoryUpdate');
 
     Route::get('/admin/logoutAdmin', [UserController::class,'logoutAdmin'])->name('admin.logout');
-
 
 });

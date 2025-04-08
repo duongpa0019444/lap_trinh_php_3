@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Quản Trị</title>
+    <title>@yield('title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <!-- Thêm SweetAlert2 từ CDN -->
@@ -77,7 +77,7 @@ main {
                         <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#"><i class="fas fa-list"></i> Quản lý danh mục</a>
+                        <a href="{{ route('admin.categoryList') }}"><i class="fas fa-list"></i> Quản lý danh mục</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.newsList') }}"><i class="fas fa-newspaper"></i> Quản lý bài viết</a>

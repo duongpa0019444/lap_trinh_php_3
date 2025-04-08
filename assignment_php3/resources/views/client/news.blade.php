@@ -13,7 +13,7 @@
                 <a href="{{route('newsDetail',['id' => $NewsNew->id])}}" class="text-decoration-none">
                     <div class="card h-100 news-card">
                         <span class="badge bg-danger category-badge">NEW</span>
-                        <img src="{{ $NewsNew->image }}" class="card-img-top" alt="...">
+                        <img src="{{ asset('/img/'.$NewsNew->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $NewsNew->title }}</h5>
                             <p class="card-text">{{ $NewsNew->description_short }}...</p>
@@ -37,7 +37,7 @@
                 <a href="{{route('newsDetail',['id' => $moreNews->id])}}" class="card news-card">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="{{ $moreNews->image }}" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ asset('/img/'.$moreNews->image) }}" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
